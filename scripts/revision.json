@@ -1,0 +1,74 @@
+{
+  "excluir_usuarios": [
+    "@RocioFranco-mb4tx",
+    "@bettydonati1811",
+    "@Elisamicozzi6950"
+  ],
+  "excluir_lugares": [],
+  "corregir": {},
+  "incluir": {
+    "@GabrielaPendola": {
+      "Lugar": "Santa Fe",
+      "Provincia": "Santa Fe",
+      "Pais": "Argentina",
+      "lat": -31.6333,
+      "lon": -60.7000
+    },
+    "@silvinaolleta8944": {
+      "Lugar": "Las Toninas",
+      "Provincia": "Buenos Aires",
+      "Pais": "Argentina",
+      "lat": -36.48834,
+      "lon": -56.70497
+    },
+    "@anaabrahan9968": {
+      "Lugar": "Puerto Madryn",
+      "Provincia": "Chubut",
+      "Pais": "Argentina",
+      "lat": -42.76728,
+      "lon": -65.03668
+    },
+    "@ritabargas9402": {
+      "Lugar": "Santa María de Punilla",
+      "Provincia": "Córdoba",
+      "Pais": "Argentina",
+      "lat": -31.27564,
+      "lon": -64.46363
+    },
+    "@rosygomez7069": {
+      "Lugar": "La Chacarita",
+      "Provincia": "Catamarca",
+      "Pais": "Argentina",
+      "lat": -28.45990,
+      "lon": -65.75244
+    },
+    "@JoseHernandez-vv5pp": {
+      "Lugar": "Ciudadela",
+      "Provincia": "Buenos Aires",
+      "Pais": "Argentina",
+      "lat": -34.63792,
+      "lon": -58.53934
+    },
+    "@hugomontero7780": {
+      "Lugar": "General Rodríguez",
+      "Provincia": "Buenos Aires",
+      "Pais": "Argentina",
+      "lat": -34.60821,
+      "lon": -58.95108
+    },
+    "@valeriaelichiry4567": {
+      "Lugar": "Necochea",
+      "Provincia": "Buenos Aires",
+      "Pais": "Argentina",
+      "lat": -38.57122,
+      "lon": -58.72624
+    },
+    "@fabiodanielortega4600": {
+      "Lugar": "San Fernando del Valle de Catamarca",
+      "Provincia": "Catamarca",
+      "Pais": "Argentina",
+      "lat": -28.46901,
+      "lon": -65.77892
+    }
+  }
+}

@@ -1,2 +1,6 @@
 _site/
 .DS_Store
+scripts/.cache/
+scripts/reporte.csv
+scripts/no_detectados.csv
+__pycache__

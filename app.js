@@ -1,6 +1,8 @@
 'use strict';
 
 const DATA_URL = 'localidades.geojson';
+const STREAM_URL = 'https://www.youtube.com/live/CtAJIkQDiyQ';
+const THEME_KEY = 'mapa-inka-theme';
 
 const ui = {
   panel: document.getElementById('panel'),
@@ -8,11 +10,53 @@ const ui = {
   search: document.getElementById('search'),
   clear: document.getElementById('clear'),
   list: document.getElementById('list'),
-  results: document.getElementById('results'),
   count: document.getElementById('count'),
   empty: document.getElementById('empty'),
   reset: document.getElementById('reset'),
 };
+
+/* ---------------------------------------------------------------------------
+ * Tema claro / oscuro
+ * ------------------------------------------------------------------------- */
+
+const SUN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>';
+
+function storedTheme() {
+  try {
+    const value = localStorage.getItem(THEME_KEY);
+    return value === 'light' || value === 'dark' ? value : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function updateThemeButtons(theme) {
+  const isLight = theme === 'light';
+  document.querySelectorAll('.theme-button').forEach((button) => {
+    button.innerHTML = isLight ? MOON_ICON : SUN_ICON;
+    button.setAttribute('aria-label', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+    button.setAttribute('title', isLight ? 'Modo oscuro' : 'Modo claro');
+    button.setAttribute('aria-pressed', String(isLight));
+  });
+}
+
+function applyTheme(theme, persist) {
+  const next = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  if (persist) {
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch (error) {
+      /* sin almacenamiento disponible */
+    }
+  }
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', next === 'light' ? '#f4efe6' : '#08080c');
+  updateThemeButtons(next);
+}
+
+applyTheme(storedTheme() || 'dark', false);
 
 /* ---------------------------------------------------------------------------
  * Mapa base
@@ -20,7 +64,7 @@ const ui = {
 
 const map = L.map('map', {
   zoomControl: false,
-  minZoom: 3,
+  minZoom: 1,
   maxZoom: 18,
   worldCopyJump: true,
 }).setView([-38.4, -63.6], 4);
@@ -48,8 +92,27 @@ L.control.layers({ 'Noche': darkBase, 'Satélite': satellite }, null, {
   collapsed: true,
 }).addTo(map);
 
+const ThemeToggle = L.Control.extend({
+  options: { position: 'topright' },
+  onAdd() {
+    const container = L.DomUtil.create('div', 'leaflet-bar theme-control');
+    const button = L.DomUtil.create('button', 'theme-button', container);
+    button.type = 'button';
+    updateThemeButtons(document.documentElement.dataset.theme);
+    button.addEventListener('click', () => {
+      applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light', true);
+    });
+    L.DomEvent.disableClickPropagation(container);
+    L.DomEvent.disableScrollPropagation(container);
+    return container;
+  },
+});
+
+new ThemeToggle().addTo(map);
+updateThemeButtons(document.documentElement.dataset.theme);
+
 /* ---------------------------------------------------------------------------
- * Capa de marcadores (con agrupado si el plugin está disponible)
+ * Capa de marcadores
  * ------------------------------------------------------------------------- */
 
 const canCluster = typeof L.markerClusterGroup === 'function';
@@ -89,6 +152,31 @@ function formatCoords(lat, lng) {
   return lat.toFixed(4) + ', ' + lng.toFixed(4);
 }
 
+function escapeRegExp(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function matchesSearch(key, query) {
+  const tokens = normalize(query).split(/\s+/).filter(Boolean);
+  return tokens.every((token) => {
+    const pattern = new RegExp('(^|[\\s@.,;:()\\-])' + escapeRegExp(token));
+    return pattern.test(key);
+  });
+}
+
+function searchScore(place, query) {
+  const needle = normalize(query);
+  const bareNeedle = needle.replace(/^@/, '');
+  const name = normalize(place.name);
+  if (name === needle) return 0;
+  if (name.startsWith(needle)) return 1;
+  if (name.split(/\s+/).some((word) => word.startsWith(needle))) return 2;
+  if (normalize(place.province).startsWith(needle)) return 3;
+  if (normalize(place.country).startsWith(needle)) return 4;
+  if (place.people.some((person) => normalize(person.usuario).replace(/^@/, '').startsWith(bareNeedle))) return 5;
+  return 6;
+}
+
 function mapPadding() {
   const desktop = window.matchMedia('(min-width: 900px)').matches;
   const panel = ui.panel.getBoundingClientRect();
@@ -110,9 +198,41 @@ function mapPadding() {
   };
 }
 
-function fitAllPlaces(animate) {
-  if (!places.length) return;
-  const bounds = homeBounds();
+function popupPadding() {
+  const desktop = window.matchMedia('(min-width: 900px)').matches;
+  if (desktop) {
+    return {
+      topLeft: L.point(24, 24),
+      bottomRight: L.point(24, 24),
+    };
+  }
+  const sheet = ui.panel.getBoundingClientRect().height;
+  return {
+    topLeft: L.point(16, 70),
+    bottomRight: L.point(16, sheet + 24),
+  };
+}
+
+function updatePopupPaddings() {
+  const padding = popupPadding();
+  for (const place of places) {
+    const popup = place.marker && place.marker.getPopup();
+    if (!popup) continue;
+    popup.options.autoPanPaddingTopLeft = padding.topLeft;
+    popup.options.autoPanPaddingBottomRight = padding.bottomRight;
+  }
+}
+
+const HOME_BOUNDS = L.latLngBounds([-56.5, -76], [-20, -50]);
+
+function homePlaces() {
+  const inside = places.filter((place) => HOME_BOUNDS.contains([place.lat, place.lng]));
+  return inside.length >= places.length * 0.8 ? inside : places;
+}
+
+function fitPlaces(target, animate) {
+  if (!target.length) return;
+  const bounds = L.latLngBounds(target.map((place) => [place.lat, place.lng]));
   const options = Object.assign({ maxZoom: 10 }, mapPadding());
   if (animate) {
     map.flyToBounds(bounds, Object.assign({ duration: 0.9 }, options));
@@ -121,23 +241,58 @@ function fitAllPlaces(animate) {
   }
 }
 
+function fitHomePlaces(animate) {
+  fitPlaces(homePlaces(), animate);
+}
+
+function fitAllPlaces(animate) {
+  fitPlaces(places, animate);
+}
+
+function zoomForPlace(place) {
+  if (place.tipo === 'pais') return 4;
+  if (place.tipo === 'provincia' || place.tipo === 'region') return 5;
+  return 12;
+}
+
 /* ---------------------------------------------------------------------------
  * Estado
  * ------------------------------------------------------------------------- */
 
 let places = [];
 let activePlace = null;
+let totalPeople = 0;
 
-// Encuadre inicial del país. Si el archivo trae puntos aislados muy lejanos
-// (por ejemplo, una localidad cargada con coordenadas de otro continente), el
-// encuadre usa el conjunto principal y esos puntos siguen disponibles en el
-// mapa y en el buscador.
-const HOME_BOUNDS = L.latLngBounds([-55.4, -73.6], [-21.5, -53.4]);
+/* ---------------------------------------------------------------------------
+ * Datos de oyentes
+ * ------------------------------------------------------------------------- */
 
-function homeBounds() {
-  const inside = places.filter((place) => HOME_BOUNDS.contains([place.lat, place.lng]));
-  const source = inside.length >= places.length * 0.8 ? inside : places;
-  return L.latLngBounds(source.map((place) => [place.lat, place.lng]));
+function normalizePerson(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const usuario = typeof raw.Usuario === 'string' ? raw.Usuario.trim() : '';
+  const mensaje = typeof raw.Mensaje === 'string' ? raw.Mensaje.trim() : '';
+  const comentarios = Array.isArray(raw.Comentarios)
+    ? raw.Comentarios.filter((item) => typeof item === 'string' && item.trim()).map((item) => item.trim())
+    : [];
+  if (!usuario && !mensaje && comentarios.length === 0) return null;
+  return { usuario, mensaje, comentarios };
+}
+
+function readPeople(properties) {
+  if (Array.isArray(properties.Oyentes)) {
+    return properties.Oyentes.map(normalizePerson).filter(Boolean);
+  }
+
+  // Compatibilidad con el formato anterior (un usuario por feature).
+  const legacy = [];
+  if (properties.Usuario || properties.Comentario) {
+    legacy.push({
+      usuario: typeof properties.Usuario === 'string' ? properties.Usuario : '',
+      mensaje: typeof properties.Comentario === 'string' ? properties.Comentario : '',
+      comentarios: [],
+    });
+  }
+  return legacy;
 }
 
 /* ---------------------------------------------------------------------------
@@ -151,6 +306,57 @@ function buildPopup(place) {
   const title = document.createElement('h2');
   title.className = 'popup__title';
   title.textContent = place.name;
+
+  const subtitleParts = [];
+  if (place.tipo === 'pais') {
+    subtitleParts.push('País');
+  } else if (place.tipo === 'provincia') {
+    subtitleParts.push('Provincia');
+    if (place.country) subtitleParts.push(place.country);
+  } else {
+    if (place.province && normalize(place.province) !== normalize(place.name)) subtitleParts.push(place.province);
+    if (place.country && normalize(place.country) !== normalize(place.name)) subtitleParts.push(place.country);
+  }
+
+  const subtitle = document.createElement('p');
+  subtitle.className = 'popup__subtitle';
+  subtitle.textContent = subtitleParts.join(', ') || 'Argentina';
+
+  const meta = document.createElement('p');
+  meta.className = 'popup__meta';
+  if (place.people.length === 0) {
+    meta.textContent = 'Sin oyentes registrados';
+  } else {
+    meta.textContent = place.people.length + (place.people.length === 1 ? ' oyente del stream' : ' oyentes del stream');
+  }
+
+  const people = document.createElement('div');
+  people.className = 'popup__people';
+  for (const person of place.people) {
+    const block = document.createElement('div');
+    block.className = 'person';
+
+    const user = document.createElement('p');
+    user.className = 'person__user';
+    user.textContent = person.usuario || 'Anónimo';
+    block.appendChild(user);
+
+    if (person.mensaje) {
+      const message = document.createElement('p');
+      message.className = 'person__message';
+      message.textContent = person.mensaje;
+      block.appendChild(message);
+    }
+
+    for (const comment of person.comentarios) {
+      const paragraph = document.createElement('p');
+      paragraph.className = 'person__comment';
+      paragraph.textContent = comment;
+      block.appendChild(paragraph);
+    }
+
+    people.appendChild(block);
+  }
 
   const coords = document.createElement('p');
   coords.className = 'popup__coords';
@@ -167,14 +373,25 @@ function buildPopup(place) {
 
   const osmLink = document.createElement('a');
   osmLink.href = 'https://www.openstreetmap.org/?mlat=' + place.lat + '&mlon=' + place.lng +
-    '#map=14/' + place.lat + '/' + place.lng;
+    '#map=12/' + place.lat + '/' + place.lng;
   osmLink.target = '_blank';
   osmLink.rel = 'noopener';
   osmLink.textContent = 'OpenStreetMap';
 
   links.append(google, document.createTextNode(' · '), osmLink);
-  root.append(title, coords, links);
+
+  root.append(title, subtitle, meta);
+  if (place.people.length) root.appendChild(people);
+  root.append(coords, links);
   return root;
+}
+
+function peopleSummary(place) {
+  if (!place.people.length) return 'Sin oyentes';
+  if (place.people.length <= 2) {
+    return place.people.map((person) => person.usuario || 'Anónimo').join(', ');
+  }
+  return place.people.length + ' oyentes';
 }
 
 function createRow(place) {
@@ -196,11 +413,22 @@ function createRow(place) {
   name.className = 'place__name';
   name.textContent = place.name;
 
-  const coords = document.createElement('span');
-  coords.className = 'place__coords';
-  coords.textContent = formatCoords(place.lat, place.lng);
+  const meta = document.createElement('span');
+  meta.className = 'place__meta';
+  const metaParts = [];
+  if (place.tipo === 'pais') {
+    metaParts.push('País');
+  } else if (place.tipo === 'provincia') {
+    metaParts.push('Provincia');
+  } else if (place.province && normalize(place.province) !== normalize(place.name)) {
+    metaParts.push(place.province);
+  } else if (place.country && normalize(place.country) !== normalize(place.name)) {
+    metaParts.push(place.country);
+  }
+  metaParts.push(peopleSummary(place));
+  meta.textContent = metaParts.join(' · ');
 
-  body.append(name, coords);
+  body.append(name, meta);
   button.append(dot, body);
 
   button.addEventListener('click', () => {
@@ -239,15 +467,60 @@ function setActive(place) {
   place.row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
+let pendingPopup = null;
+
+function collapsePanelOnMobile() {
+  if (window.matchMedia('(min-width: 900px)').matches) return;
+  if (ui.panel.classList.contains('is-collapsed')) return;
+  ui.panel.classList.add('is-collapsed');
+  ui.toggle.setAttribute('aria-expanded', 'false');
+  ui.toggle.setAttribute('aria-label', 'Mostrar la lista de localidades');
+  updatePopupPaddings();
+  updateSheetOffset();
+}
+
 function focusPlace(place) {
-  if (typeof markers.zoomToShowLayer === 'function') {
-    markers.zoomToShowLayer(place.marker, () => {
-      map.flyTo([place.lat, place.lng], Math.max(map.getZoom(), 12), { duration: 0.7 });
-      place.marker.openPopup();
-    });
-  } else {
-    map.flyTo([place.lat, place.lng], Math.max(map.getZoom(), 12), { duration: 0.7 });
+  collapsePanelOnMobile();
+  if (pendingPopup) {
+    map.off('moveend', pendingPopup);
+    pendingPopup = null;
+  }
+
+  const zoom = Math.max(map.getZoom(), zoomForPlace(place));
+  const target = [place.lat, place.lng];
+  let center = L.latLng(target);
+
+  if (!window.matchMedia('(min-width: 900px)').matches) {
+    // En celular el panel tapa la mitad inferior: centramos el punto un poco
+    // más arriba para que el popup no quede debajo de la hoja.
+    const sheet = ui.panel.getBoundingClientRect().height;
+    center = map.unproject(map.project(target, zoom).add([0, sheet / 2]), zoom);
+  }
+
+  const openPopup = () => {
+    pendingPopup = null;
     place.marker.openPopup();
+  };
+
+  const openWhenReady = () => {
+    const current = map.getCenter();
+    const sameCenter = Math.abs(current.lat - center.lat) < 0.000001 &&
+      Math.abs(current.lng - center.lng) < 0.000001;
+    if (sameCenter && map.getZoom() === zoom) {
+      openPopup();
+      return;
+    }
+    // Abrimos el popup cuando termina el movimiento para que Leaflet calcule
+    // bien el auto-pan, sobre todo con listas largas de oyentes.
+    pendingPopup = openPopup;
+    map.once('moveend', openPopup);
+    map.flyTo(center, zoom, { duration: 0.7 });
+  };
+
+  if (typeof markers.zoomToShowLayer === 'function') {
+    markers.zoomToShowLayer(place.marker, openWhenReady);
+  } else {
+    openWhenReady();
   }
 }
 
@@ -256,8 +529,9 @@ function applyFilter(query) {
   let visible = 0;
 
   for (const place of places) {
-    const matches = needle === '' || place.key.includes(needle);
+    const matches = needle === '' || matchesSearch(place.key, query);
     place.row.hidden = !matches;
+    place.score = (matches && needle !== '') ? searchScore(place, query) : 0;
 
     if (matches) {
       if (!place.onMap) {
@@ -275,9 +549,17 @@ function applyFilter(query) {
     }
   }
 
-  ui.count.textContent = needle === ''
-    ? places.length + ' localidades'
-    : visible + ' de ' + places.length + ' localidades';
+  if (needle === '') {
+    ui.count.textContent = places.length + ' lugares · ' + totalPeople + ' oyentes';
+  } else {
+    ui.count.textContent = visible + ' de ' + places.length + ' lugares';
+  }
+
+  const ordered = places.slice().sort((a, b) => {
+    if (a.row.hidden !== b.row.hidden) return a.row.hidden ? 1 : -1;
+    return (a.score - b.score) || a.name.localeCompare(b.name, 'es');
+  });
+  for (const place of ordered) ui.list.appendChild(place.row);
 
   ui.empty.hidden = visible !== 0;
   ui.clear.hidden = needle === '';
@@ -334,15 +616,32 @@ function init(data) {
       const lat = Number(feature.geometry.coordinates[1]);
       if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
 
+      const properties = feature.properties || {};
       const name = String(
-        (feature.properties && (feature.properties.Lugar || feature.properties.Nombre || feature.properties.name)) ||
-        'Localidad sin nombre'
+        properties.Lugar || properties.Nombre || properties.name || 'Lugar sin nombre'
       ).trim();
+      const province = String(properties.Provincia || properties.provincia || '').trim();
+      const country = String(properties.Pais || properties.pais || 'Argentina').trim();
+      const tipo = String(properties.Tipo || properties.tipo || 'localidad').trim();
+      const people = readPeople(properties);
 
-      return { name, lat, lng, key: normalize(name), onMap: false };
+      const key = normalize([
+        name,
+        province,
+        country,
+        ...people.flatMap((person) => [
+          person.usuario,
+          person.mensaje,
+          ...person.comentarios,
+        ]),
+      ].join(' '));
+
+      return { name, province, country, tipo, people, lat, lng, key, onMap: false };
     })
     .filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name, 'es'));
+
+  totalPeople = places.reduce((total, place) => total + place.people.length, 0);
 
   for (const place of places) {
     place.marker = L.circleMarker([place.lat, place.lng], {
@@ -354,13 +653,18 @@ function init(data) {
       fillOpacity: 0.95,
     });
 
+    const padding = popupPadding();
     place.marker.bindPopup(buildPopup(place), {
       closeButton: true,
-      maxWidth: 300,
-      autoPanPadding: [24, 24],
+      maxWidth: 330,
+      autoPanPaddingTopLeft: padding.topLeft,
+      autoPanPaddingBottomRight: padding.bottomRight,
     });
 
-    place.marker.on('click', () => setActive(place));
+    place.marker.on('click', () => {
+      setActive(place);
+      collapsePanelOnMobile();
+    });
     place.marker.on('mouseover', () => highlight(place, true));
     place.marker.on('mouseout', () => highlight(place, false));
 
@@ -371,8 +675,9 @@ function init(data) {
   }
 
   ui.list.appendChild(fragment);
-  ui.count.textContent = places.length + ' localidades';
-  fitAllPlaces(false);
+  ui.count.textContent = places.length + ' lugares · ' + totalPeople + ' oyentes';
+  updatePopupPaddings();
+  fitHomePlaces(false);
 }
 
 /* ---------------------------------------------------------------------------
@@ -408,6 +713,7 @@ ui.toggle.addEventListener('click', () => {
   const collapsed = ui.panel.classList.toggle('is-collapsed');
   ui.toggle.setAttribute('aria-expanded', String(!collapsed));
   ui.toggle.setAttribute('aria-label', collapsed ? 'Mostrar la lista de localidades' : 'Ocultar la lista de localidades');
+  updatePopupPaddings();
 });
 
 /* ---------------------------------------------------------------------------
