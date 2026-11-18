@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mapa Inka · La comunidad del stream en el mapa</title>
+  <meta name="description" content="Mapa interactivo de las localidades de la comunidad que escucha el stream en vivo de Mapa Inka.">
+  <meta name="theme-color" content="#08080c">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff3b3b'/%3E%3Cstop offset='1' stop-color='%23ff9a2e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cpath d='M13 10.5v11l9-5.5-9-5.5z' fill='%23fff'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://basemaps.cartocdn.com" crossorigin>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="map" aria-label="Mapa interactivo de localidades"></div>
+  <div class="map-vignette" aria-hidden="true"></div>
+
+  <aside class="panel" id="panel" aria-label="Buscar localidades">
+    <div class="sheet-handle" aria-hidden="true"></div>
+
+    <header class="panel__brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9 7.2v9.6l8.2-4.8L9 7.2z"/>
+        </svg>
+      </div>
+      <div class="titles">
+        <h1>Mapa Inka</h1>
+        <p>La comunidad del stream</p>
+      </div>
+      <a class="live" href="https://www.youtube.com/live/CtAJIkQDiyQ" target="_blank" rel="noopener" aria-label="Escuchar el stream en vivo en YouTube (se abre en otra pestaña)">
+        <span class="live__dot" aria-hidden="true"></span>
+        <span class="live__label">En vivo</span>
+      </a>
+      <button class="toggle" id="toggle" type="button" aria-expanded="true" aria-controls="results" aria-label="Mostrar u ocultar la lista de localidades">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m6 15 6-6 6 6"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="search">
+      <svg class="search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/>
+        <path d="m20 20-3.5-3.5"/>
+      </svg>
+      <input id="search" type="search" placeholder="Buscar tu localidad…" autocomplete="off" spellcheck="false" aria-label="Buscar localidad por nombre">
+      <button class="search__clear" id="clear" type="button" aria-label="Limpiar búsqueda" hidden>&times;</button>
+    </div>
+
+    <div class="panel__meta">
+      <span id="count" aria-live="polite">Cargando localidades…</span>
+      <button class="reset" id="reset" type="button">Ver todo el mapa</button>
+    </div>
+
+    <div class="results" id="results">
+      <ul class="list" id="list"></ul>
+      <p class="empty" id="empty" hidden>No encontramos localidades con ese nombre.</p>
+    </div>
+
+    <a class="cta" href="https://www.youtube.com/live/CtAJIkQDiyQ" target="_blank" rel="noopener">
+      <span class="cta__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 7.2v9.6l8.2-4.8L9 7.2z"/></svg>
+      </span>
+      <span class="cta__text">
+        <span class="cta__title">Escuchá el streaming</span>
+        <span class="cta__hint">En vivo por YouTube</span>
+      </span>
+      <svg class="cta__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 17 17 7M9 7h8v8"/>
+      </svg>
+    </a>
+  </aside>
+
+  <noscript>
+    <p class="noscript">Este mapa necesita JavaScript para mostrar las localidades.</p>
+  </noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

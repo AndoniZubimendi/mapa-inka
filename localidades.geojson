@@ -1,0 +1,1682 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Aguilares"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.6167,
+          -27.4333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Aldo Bonzi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5236,
+          -34.7117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Almirante Brown (Adrogué)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3886,
+          -34.7975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Amaicha del Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.9167,
+          -26.5917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Andalgalá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.3164,
+          -27.5819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Anillaco"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.9381,
+          -28.8108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Antonio Carboni"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.3278,
+          -35.1889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Azul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.8585,
+          -36.777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Bahía Blanca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.2663,
+          -38.7183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Banda del Río Salí"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.1667,
+          -26.8333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Barrancas (Jujuy)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.0914,
+          -23.3219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Belén"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.0281,
+          -27.6486
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Berisso"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.8844,
+          -34.8728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Bernal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.2806,
+          -34.7083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Bragado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.4894,
+          -35.1189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Brandsen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.2333,
+          -35.1667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "CABA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3816,
+          -34.6037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Cafferata"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.0833,
+          -33.4333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Calchaquí"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.2833,
+          -29.8833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Capilla del Monte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.5247,
+          -30.8589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Carmen de Patagones"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9833,
+          -40.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Chascomús"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.0089,
+          -35.575
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Chilecito"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.4975,
+          -29.1619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Chivilcoy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.0167,
+          -34.8957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Ciudadela"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5392,
+          -34.6383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Comandante Nicanor Otamendi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.85,
+          -38.1167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Comodoro Rivadavia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.4822,
+          -45.8647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Concepción (Tucumán)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.5925,
+          -27.3456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Concarán"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.2428,
+          -32.56
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Conlara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.25,
+          -32.3333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Córdoba Capital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.1888,
+          -31.4201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Corrientes Capital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.8306,
+          -27.4692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Cruz Alta"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.8083,
+          -33.0083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Curuzú Cuatiá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.0544,
+          -29.7917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Del Viso"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7986,
+          -34.4519
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Despeñaderos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2833,
+          -31.8167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Don Torcuato"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6228,
+          -34.4878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "El Calafate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.2648,
+          -50.3379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "El Jagüel"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4936,
+          -34.835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "El Trébol"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.7,
+          -32.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Estancia Vieja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.5167,
+          -31.3833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Florencio Varela"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.2756,
+          -34.8128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Fray Mamerto Esquiú"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7167,
+          -28.3833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "General Güemes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.05,
+          -24.6667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "General Pico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.7568,
+          -35.6566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "General Rodríguez"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.9539,
+          -34.6083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Gualeguaychú"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5172,
+          -33.0094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Humahuaca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.3494,
+          -23.2053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Isidro Casanova"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5844,
+          -34.7031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Ituzaingó"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6672,
+          -34.6581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Junín"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.9433,
+          -34.5838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "La Matanza (San Justo)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5633,
+          -34.6874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "La Paz (Entre Ríos)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.6456,
+          -30.7417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "La Plata"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.9536,
+          -34.9205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "La Rioja Capital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.8558,
+          -29.4131
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Lanús"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3953,
+          -34.7028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Lavalle (Mendoza)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.5944,
+          -32.7219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Lobos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0956,
+          -35.1864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Lomas de Zamora"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4027,
+          -34.7573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Londres (Catamarca)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.1333,
+          -27.7144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Los Polvorines"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6914,
+          -34.5011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Los Surgentes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.0167,
+          -32.9833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Madrid"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.7038,
+          40.4168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Malargüe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.5853,
+          -35.4753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Mar del Plata"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.5426,
+          -38.0055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Merlo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7283,
+          -34.6653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Monte Grande"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4667,
+          -34.815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Moreno"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7914,
+          -34.634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Morón"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.6198,
+          -34.6534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Necochea"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7396,
+          -38.5545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Paraná"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.5238,
+          -31.732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Pergamino"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.5736,
+          -33.8899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Pilar (Córdoba)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.8833,
+          -31.6819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Plaza Huincul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.2086,
+          -38.9258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Pueblo Andino"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.8694,
+          -32.6694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Puerto Esperanza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -54.65,
+          -26.0167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Puerto Gaboto"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.8167,
+          -32.4333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Puerto Madryn"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.0385,
+          -42.7692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Punta del Indio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -57.25,
+          -35.2667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Quenumá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9333,
+          -36.5333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Quequén"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.7042,
+          -38.5567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Quilmes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.2546,
+          -34.7203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Rafaela"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.4867,
+          -31.2503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Ramos Mejía"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5644,
+          -34.6406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Reconquista"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.65,
+          -29.15
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Río Ceballos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.3222,
+          -31.1642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Río Gallegos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.2181,
+          -51.6226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Río Grande"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.7095,
+          -53.7877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Rojas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.735,
+          -34.1983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Roldán"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.9078,
+          -32.8992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Rosario"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.6505,
+          -32.9442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Salta Capital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.4232,
+          -24.7821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Antonio de Arredondo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.5167,
+          -31.4833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Antonio Oeste"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.9477,
+          -40.7319
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Bernardo (Chaco)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.7131,
+          -27.2878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Carlos (Mendoza)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.0431,
+          -33.77
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Fernando del Valle de Catamarca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.7852,
+          -28.4696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San José (Tinogasta)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.55,
+          -28.0167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San José de Jáchal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.7469,
+          -30.2406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Justo (Santa Fe)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.5919,
+          -30.7892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Martín (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5364,
+          -34.575
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Martín (Mendoza)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.4681,
+          -33.081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Martín de los Andes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.3534,
+          -40.1579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Miguel del Monte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.8067,
+          -35.4417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Nicolás de los Arroyos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.2252,
+          -33.3358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Rafael"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.3301,
+          -34.6177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "San Vicente (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4231,
+          -35.025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Santa Fe Capital"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.6973,
+          -31.6107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Santa María (Catamarca)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.0467,
+          -26.695
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Santa María de Punilla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.4667,
+          -31.2667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Santa Rosa (La Pampa)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2833,
+          -36.6167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Santa Rosa de Calamuchita"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.5364,
+          -32.0692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Taco Pozo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.2667,
+          -25.6167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Tandil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.1332,
+          -37.3217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Tigre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5796,
+          -34.426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Trelew"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.3051,
+          -43.2489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Tristán Suárez"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5625,
+          -34.8894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Unquillo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.3167,
+          -31.2306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Ushuaia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.303,
+          -54.8019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "25 de Mayo (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.1725,
+          -35.4328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Viedma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.9967,
+          -40.8135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Villa Allende"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.2956,
+          -31.2944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Villa Ascasubi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.8833,
+          -32.1667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Villa Ballester"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5567,
+          -34.5472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Villa Carlos Paz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.4978,
+          -31.4241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Villa Constitución"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.3289,
+          -33.2281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Villa La Angostura"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.6463,
+          -40.7617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Villaguay"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -59.0269,
+          -31.8653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Lugar": "Virreyes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5567,
+          -34.4567
+        ]
+      }
+    }
+  ]
+}
