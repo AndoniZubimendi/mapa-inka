@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html,
 body {
   height: 100%;
@@ -47,8 +51,8 @@ body {
   z-index: 350;
   pointer-events: none;
   background:
-    radial-gradient(120% 85% at 50% 38%, transparent 40%, rgba(4, 4, 8, 0.5) 100%),
-    linear-gradient(180deg, rgba(4, 4, 8, 0.32), transparent 18%, transparent 82%, rgba(4, 4, 8, 0.42));
+    radial-gradient(120% 85% at 50% 38%, transparent 42%, rgba(4, 4, 8, 0.38) 100%),
+    linear-gradient(180deg, rgba(4, 4, 8, 0.3), transparent 18%, transparent 82%, rgba(4, 4, 8, 0.35));
 }
 
 /* --------------------------------------------------------------------------
@@ -119,6 +123,13 @@ body {
   color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.titles h1 .grad {
+  color: transparent;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .titles p {
@@ -544,7 +555,7 @@ body {
 }
 
 .dark-tiles {
-  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.06) saturate(0.3);
+  filter: invert(1) hue-rotate(180deg) brightness(1.05) contrast(1) saturate(0.32);
 }
 
 .cluster {
